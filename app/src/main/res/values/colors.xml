@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="gray_1">#777C7E</color>
+    <color name="ndc_color">#047a97</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dnc_color">#457995</color>
+
+    <color name="floating_button">#007894</color>
+    <color name="top_head">#1093b2</color>
+
+
+    <color name="black_off">#C0C0C0</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="white_80">#80FFFFFF</color>
+
+    <color name="home_bg">#EDEDED</color>
+
+    <color name="background">#EFEFEF</color>
+    <color name="placeholder_grey">#AAADC4</color>
+    <color name="placeholder_grey_20">#33AAADC4</color>
+    <color name="forgot_password_color">#239cdc</color>
+    <color name="primary_light">#4023dcdc</color>
+    <color name="colorPrimaryLight">#77303F9F</color>
+    <color name="red">#FF0000</color>
+    <color name="greenDark">#006400</color>
+    <color name="login_button_color">#1BADE4</color>
+    <color name="completed">#1BADE4</color>
+</resources>

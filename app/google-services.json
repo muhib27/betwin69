@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "822716030598",
+    "firebase_url": "https://betwin69-1693f.firebaseio.com",
+    "project_id": "betwin69-1693f",
+    "storage_bucket": "betwin69-1693f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822716030598:android:ae73dd5738cc4893",
+        "android_client_info": {
+          "package_name": "com.betwin69"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822716030598-rtctb1e4876mjv03ldt97eacu3i1ro0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5NphcJ3l_a74udFgFJ0PtrI0gxhuXtvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822716030598-rtctb1e4876mjv03ldt97eacu3i1ro0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
