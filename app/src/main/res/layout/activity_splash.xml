@@ -6,20 +6,20 @@
     android:background="#000000"
     tools:context=".activity.SplashActivity">
 
-    <!--<ImageView-->
-    <!--android:scaleType="fitXY"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:id="@+id/imageView"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="-220dp"-->
-    <!--android:src="@drawable/ball" />-->
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_marginTop="-100dp"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/football" />
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:layout_marginTop="-200dp"
+        android:src="@drawable/ball" />
+    <!--<pl.droidsonroids.gif.GifImageView-->
+        <!--android:layout_marginTop="-100dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/football" />-->
 
 
     <pl.droidsonroids.gif.GifImageView

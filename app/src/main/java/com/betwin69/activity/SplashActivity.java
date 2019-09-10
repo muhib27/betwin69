@@ -19,7 +19,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.betwin69.R;
@@ -85,21 +91,21 @@ public class SplashActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
-        //        RotateAnimation rotate = new RotateAnimation(-359, 0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-//        rotate.setDuration(2000);
-//        rotate.setInterpolator(new LinearInterpolator());
-//
-//        //Load animation
-//        Animation slide_down = AnimationUtils.loadAnimation(getApplicationContext(),
-//                R.anim.slide_down);
-//
-//        ImageView image = (ImageView) findViewById(R.id.imageView);
-//
-//        AnimationSet s = new AnimationSet(false);//false means don't share interpolators
-//        s.addAnimation(slide_down);
-//        s.addAnimation(rotate);
-//
-//        image.startAnimation(s);
+        RotateAnimation rotate = new RotateAnimation(-359, 0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotate.setDuration(2000);
+        rotate.setInterpolator(new LinearInterpolator());
+
+        //Load animation
+        Animation slide_down = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.rotate_down);
+
+        ImageView image = (ImageView) findViewById(R.id.imageView);
+
+        AnimationSet s = new AnimationSet(false);//false means don't share interpolators
+        s.addAnimation(slide_down);
+        //s.addAnimation(rotate);
+
+        image.startAnimation(s);
         if (!NetworkConnection.getInstance().isNetworkAvailable()) {
             flag = true;
             openDialog();

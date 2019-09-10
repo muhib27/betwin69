@@ -439,14 +439,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String addMyFCM() {
-        String st = "alert('here'); var loginInput = document.getElementById(\"fcm_id_for_mobile\");\n" +
+//        String st = "alert('here'); var loginInput = document.getElementById(\"fcm_id_for_mobile\");\n" +
+//                "        if(loginInput){\n" +
+//                "\n" +
+//                "            loginInput.value='" + AppSharedPreference.getFcm() + "';\n" +
+//                "        }\n" +
+//                "        var logoutlink = document.getElementById(\"logout_fcm_id\");\n" +
+//                "        if(logoutlink){\n" +
+//                "            logoutlink.href=logoutlink.href+\"?fcm_id=" + AppSharedPreference.getFcm() + "\"; }\n";
+
+        String st = " var loginInput = document.getElementById(\"fcm_id\");\n" +
                 "        if(loginInput){\n" +
                 "\n" +
                 "            loginInput.value='" + AppSharedPreference.getFcm() + "';\n" +
                 "        }\n" +
-                "        var logoutlink = document.getElementById(\"logout_fcm_id\");\n" +
+                "        var logoutlink = document.getElementById(\"logout_link_fcm\");\n" +
                 "        if(logoutlink){\n" +
                 "            logoutlink.href=logoutlink.href+\"?fcm_id=" + AppSharedPreference.getFcm() + "\"; }\n";
+
+
 
 //        var loginInput = document.getElementById("fcm_id_for_mobile");
 //        if(loginInput){
