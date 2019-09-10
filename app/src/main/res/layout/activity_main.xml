@@ -7,23 +7,32 @@
     tools:context=".activity.MainActivity">
 
     <!--<ScrollView-->
-        <!--android:id="@+id/scrollView"-->
-        <!--android:scrollbars="vertical"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+    <!--android:id="@+id/scrollView"-->
+    <!--android:scrollbars="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-        <!--<WebView-->
-            <!--android:id="@+id/feesWebView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-        <WebView
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:windowSoftInputMode="adjustResize"
-            android:id="@+id/msw_view"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:visibility="gone" />
+    <!--<WebView-->
+    <!--android:id="@+id/feesWebView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+    <WebView
+        android:id="@+id/msw_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone"
+        android:windowSoftInputMode="adjustResize" />
+
+    <ImageView
+        android:id="@+id/loader"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/loader" />
+
     <include layout="@layout/error_layout" />
     <!--</ScrollView>-->
 

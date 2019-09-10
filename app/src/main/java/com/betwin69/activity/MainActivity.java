@@ -56,6 +56,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -76,6 +77,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     private String cureentUrl = "";
     String type = "";
+    ImageView progressgif;
 
     static boolean ASWP_JSCRIPT = SmartWebView.ASWP_JSCRIPT;
     static boolean ASWP_FUPLOAD = SmartWebView.ASWP_FUPLOAD;
@@ -188,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         setContentView(R.layout.activity_main);
+        progressgif = findViewById(R.id.loader);
         errorLayout = (LinearLayout)findViewById(R.id.error_layout);
         asw_view = findViewById(R.id.msw_view);
 
@@ -489,9 +492,11 @@ public class MainActivity extends AppCompatActivity {
     private class Callback extends WebViewClient {
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             // get_location();
-            if (!progressBar.isShowing()) {
-                progressBar.show();
-            }
+//            if (!progressBar.isShowing()) {
+//                progressBar.show();
+//            }
+            if(progressgif.getVisibility() != View.VISIBLE)
+                progressgif.setVisibility(View.VISIBLE);
         }
 
         public void onPageFinished(WebView view, String url) {
@@ -511,9 +516,11 @@ public class MainActivity extends AppCompatActivity {
             }
             if(!errorFlag)
             findViewById(R.id.msw_view).setVisibility(View.VISIBLE);
-            if (progressBar.isShowing()) {
-                progressBar.dismiss();
-            }
+//            if (progressBar.isShowing()) {
+//                progressBar.dismiss();
+//            }
+            if(progressgif.getVisibility() == View.VISIBLE)
+                progressgif.setVisibility(View.GONE);
         }
 
         @Override
@@ -532,9 +539,11 @@ public class MainActivity extends AppCompatActivity {
                 errorFlag = true;
 
             }
-            if (progressBar.isShowing()) {
-                progressBar.dismiss();
-            }
+//            if (progressBar.isShowing()) {
+//                progressBar.dismiss();
+//            }
+            if(progressgif.getVisibility() == View.VISIBLE)
+                progressgif.setVisibility(View.GONE);
         }
 
         //For android below API 23
@@ -546,9 +555,11 @@ public class MainActivity extends AppCompatActivity {
 //            asw_view.clearHistory();
 //            WebBackForwardList mWebBackForwardList = asw_view.copyBackForwardList();
             //openDialogNet("");
-            if (progressBar.isShowing()) {
-                progressBar.dismiss();
-            }
+//            if (progressBar.isShowing()) {
+//                progressBar.dismiss();
+//            }
+            if(progressgif.getVisibility() == View.VISIBLE)
+                progressgif.setVisibility(View.GONE);
 
         }
 
