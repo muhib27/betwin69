@@ -8,6 +8,7 @@
     <color name="ndc_color">#047a97</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="black_bg">#99000000</color>
     <color name="dnc_color">#457995</color>
 
     <color name="floating_button">#007894</color>

@@ -96,7 +96,7 @@ public class MyApplication extends Application {
 //        return udid;
 //    }
 
-    public static void sendMyNotification(final String subject, final String message, final String type, final String id, final String target) {
+    public static void sendMyNotification(final String message, String target) {
 
         ActivityManager activityManager = (ActivityManager) mInstance.getSystemService(ACTIVITY_SERVICE);
 // The first in the list of RunningTasks is always the foreground task.
@@ -114,10 +114,8 @@ public class MyApplication extends Application {
 
             final Intent intent = new Intent("target_url_token");
             final LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(MyApplication.getInstance());
-            intent.putExtra("subject", subject);
+
             intent.putExtra("message", message);
-            intent.putExtra("target_type", type);
-            intent.putExtra("target_id", id);
             intent.putExtra("target_view", target);
             broadcastManager.sendBroadcast(intent);
 //            long when = System.currentTimeMillis();
@@ -172,10 +170,7 @@ public class MyApplication extends Application {
                     .getSystemService(Context.NOTIFICATION_SERVICE);
 
             Intent notificationIntent = new Intent(mInstance, MainActivity.class);
-            notificationIntent.putExtra("subject", subject);
             notificationIntent.putExtra("message", message);
-            notificationIntent.putExtra("target_type", type);
-            notificationIntent.putExtra("target_id", id);
             notificationIntent.putExtra("target_view", target);
             PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 1111, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -183,7 +178,7 @@ public class MyApplication extends Application {
             NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(mInstance)
                     .setSmallIcon(R.drawable.notification_icon)
                     .setColor(Color.WHITE)
-                    .setContentTitle(subject)
+//                    .setContentTitle(subject)
                     .setContentText(message)
                     .setOngoing(true)
                     //.setSound(true)
@@ -193,7 +188,7 @@ public class MyApplication extends Application {
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 int importance = NotificationManager.IMPORTANCE_HIGH;
-                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NDC", importance);
+                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "betwin69", importance);
                 notificationChannel.enableLights(true);
                 notificationChannel.setLightColor(Color.WHITE);
                 notificationChannel.enableVibration(true);

@@ -25,13 +25,27 @@
         android:visibility="gone"
         android:windowSoftInputMode="adjustResize" />
 
-    <ImageView
+    <View
+        android:visibility="gone"
+        android:background="@color/black_bg"
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/loader"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/spinner" />-->
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/loader"
         android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/loader" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/spinner" />
 
     <include layout="@layout/error_layout" />
     <!--</ScrollView>-->

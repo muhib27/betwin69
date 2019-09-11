@@ -65,6 +65,7 @@ import android.widget.Toast;
 import com.betwin69.R;
 import com.betwin69.utils.AppSharedPreference;
 import com.betwin69.utils.NetworkConnection;
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,11 +74,13 @@ import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import pl.droidsonroids.gif.GifImageView;
+
 //https://stackoverflow.com/questions/9627774/android-allow-portrait-and-landscape-for-tablets-but-force-portrait-on-phone
 public class MainActivity extends AppCompatActivity {
     private String cureentUrl = "";
     String type = "";
-    ImageView progressgif;
+    GifImageView progressgif;
 
     static boolean ASWP_JSCRIPT = SmartWebView.ASWP_JSCRIPT;
     static boolean ASWP_FUPLOAD = SmartWebView.ASWP_FUPLOAD;
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     private static String ASWV_F_TYPE = SmartWebView.ASWV_F_TYPE;
 
     public static String ASWV_HOST = aswm_host(ASWV_URL);
+
 
     //Careful with these variable names if altering
     WebView asw_view;
@@ -119,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     WebSettings webSettings;
     LinearLayout errorLayout;
+    View bg;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -191,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
         progressgif = findViewById(R.id.loader);
+        bg = findViewById(R.id.bg);
         errorLayout = (LinearLayout)findViewById(R.id.error_layout);
         asw_view = findViewById(R.id.msw_view);
 
@@ -205,14 +211,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
 
-                String title = intent.getStringExtra("subject");
+                //String title = intent.getStringExtra("subject");
                 String body = intent.getStringExtra("message");
                 String target_view = intent.getStringExtra("target_view");
 
                 if (target_view != null) {
 
                     try {
-                        openDialog(target_view, title, body);
+                        openDialog(target_view, body);
 //                            ASWV_URL = target_view;
 //
 //                            get_info();
@@ -300,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //asw_view.requestFocus(View.FOCUS_DOWN);
-        //asw_view.addJavascriptInterface(new JavaScriptInterface(this), addMyFCM());
+        asw_view.addJavascriptInterface(new JavaScriptInterface(this), addMyFCM());
 
         asw_view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -495,8 +501,14 @@ public class MainActivity extends AppCompatActivity {
 //            if (!progressBar.isShowing()) {
 //                progressBar.show();
 //            }
-            if(progressgif.getVisibility() != View.VISIBLE)
+            if(progressgif.getVisibility() != View.VISIBLE) {
+                bg.setVisibility(View.VISIBLE);
                 progressgif.setVisibility(View.VISIBLE);
+//                Glide.with(getApplicationContext())
+//                        .asGif()
+//                        .load(R.drawable.spinner)
+//                        .into(progressgif);
+            }
         }
 
         public void onPageFinished(WebView view, String url) {
@@ -519,8 +531,10 @@ public class MainActivity extends AppCompatActivity {
 //            if (progressBar.isShowing()) {
 //                progressBar.dismiss();
 //            }
-            if(progressgif.getVisibility() == View.VISIBLE)
+            if(progressgif.getVisibility() == View.VISIBLE) {
                 progressgif.setVisibility(View.GONE);
+                bg.setVisibility(View.GONE);
+            }
         }
 
         @Override
@@ -542,8 +556,10 @@ public class MainActivity extends AppCompatActivity {
 //            if (progressBar.isShowing()) {
 //                progressBar.dismiss();
 //            }
-            if(progressgif.getVisibility() == View.VISIBLE)
+            if(progressgif.getVisibility() == View.VISIBLE) {
                 progressgif.setVisibility(View.GONE);
+                bg.setVisibility(View.GONE);
+            }
         }
 
         //For android below API 23
@@ -558,8 +574,10 @@ public class MainActivity extends AppCompatActivity {
 //            if (progressBar.isShowing()) {
 //                progressBar.dismiss();
 //            }
-            if(progressgif.getVisibility() == View.VISIBLE)
+            if(progressgif.getVisibility() == View.VISIBLE) {
                 progressgif.setVisibility(View.GONE);
+                bg.setVisibility(View.GONE);
+            }
 
         }
 
@@ -933,18 +951,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void openDialog(final String target_view, String title, final String body) {
+    public void openDialog(final String target_view, final String body) {
         Log.e(TAG, "process time: " + "dddddddddddddddddddddddddddddd");
 
 
         LayoutInflater factory = LayoutInflater.from(MainActivity.this);
         final View deleteDialogView = factory.inflate(R.layout.alert_dialog_new_order, null);
-        TextView titletext = (TextView) deleteDialogView.findViewById(R.id.title);
+        //TextView titletext = (TextView) deleteDialogView.findViewById(R.id.title);
         TextView bodytext = (TextView) deleteDialogView.findViewById(R.id.body);
         Button acceptBtn = (Button) deleteDialogView.findViewById(R.id.ok);
 //        acceptBtn.setText("Accept");
 //        text.setText(title + "\n" + body);
-        titletext.setText(title);
+       // titletext.setText(title);
         bodytext.setText(body);
         final AlertDialog deleteDialog = new AlertDialog.Builder(MainActivity.this).create();
         deleteDialog.setCancelable(false);
