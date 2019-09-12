@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //asw_view.requestFocus(View.FOCUS_DOWN);
-        asw_view.addJavascriptInterface(new JavaScriptInterface(this), addMyFCM());
+//        asw_view.addJavascriptInterface(new JavaScriptInterface(this), addMyFCM());
 
         asw_view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -515,7 +515,7 @@ public class MainActivity extends AppCompatActivity {
             //findViewById(R.id.msw_welcome).setVisibility(View.GONE);
 //            if(url.equals("http://www.ndc.local/main/login"))
 //            {
-            // asw_view.addJavascriptInterface(new JavaScriptInterface(getApplicationContext()), addMyFCM());
+             asw_view.addJavascriptInterface(new JavaScriptInterface(getApplicationContext()), addMyFCM());
 //            }
             asw_view.loadUrl("javascript:load_fcm('" + AppSharedPreference.getFcm() + "')");
             if(errorFlag) {

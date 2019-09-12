@@ -28,7 +28,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
        // message.getData().get("order_id");
 
         //setAlarm();
-        if(message.getData().get("subject")!=null)
+        if(message.getData().get("message")!=null)
         MyApplication.sendMyNotification(message.getData().get("message"), message.getData().get("target_view"));
 
     }
