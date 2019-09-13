@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //asw_view.requestFocus(View.FOCUS_DOWN);
-//        asw_view.addJavascriptInterface(new JavaScriptInterface(this), addMyFCM());
+        //asw_view.addJavascriptInterface(new JavaScriptInterface(this), addMyFCM());
 
         asw_view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -448,7 +448,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String addMyFCM() {
-//        String st = "alert('here'); var loginInput = document.getElementById(\"fcm_id_for_mobile\");\n" +
+        String st = "alert('here')";
+//        var loginInput = document.getElementById(\"fcm_id_for_mobile\");\n" +
 //                "        if(loginInput){\n" +
 //                "\n" +
 //                "            loginInput.value='" + AppSharedPreference.getFcm() + "';\n" +
@@ -457,14 +458,14 @@ public class MainActivity extends AppCompatActivity {
 //                "        if(logoutlink){\n" +
 //                "            logoutlink.href=logoutlink.href+\"?fcm_id=" + AppSharedPreference.getFcm() + "\"; }\n";
 
-        String st = " var loginInput = document.getElementById(\"fcm_id\");\n" +
-                "        if(loginInput){\n" +
-                "\n" +
-                "            loginInput.value='" + AppSharedPreference.getFcm() + "';\n" +
-                "        }\n" +
-                "        var logoutlink = document.getElementById(\"logout_link_fcm\");\n" +
-                "        if(logoutlink){\n" +
-                "            logoutlink.href=logoutlink.href+\"?fcm_id=" + AppSharedPreference.getFcm() + "\"; }\n";
+//        String st = " var loginInput = document.getElementById(\"fcm_id\");\n" +
+//                "        if(loginInput){\n" +
+//                "\n" +
+//                "            loginInput.value='" + AppSharedPreference.getFcm() + "';\n" +
+//                "        }\n" +
+//                "        var logoutlink = document.getElementById(\"logout_link_fcm\");\n" +
+//                "        if(logoutlink){\n" +
+//                "            logoutlink.href=logoutlink.href+\"?fcm_id=" + AppSharedPreference.getFcm() + "\"; }\n";
 
 
 
@@ -513,10 +514,10 @@ public class MainActivity extends AppCompatActivity {
 
         public void onPageFinished(WebView view, String url) {
             //findViewById(R.id.msw_welcome).setVisibility(View.GONE);
-//            if(url.equals("http://www.ndc.local/main/login"))
-//            {
-             asw_view.addJavascriptInterface(new JavaScriptInterface(getApplicationContext()), addMyFCM());
-//            }
+            //if(url.equals("http://www.ndc.local/main/login"))
+            //{
+            // asw_view.addJavascriptInterface(new JavaScriptInterface(getApplicationContext()), addMyFCM());
+            //}
             asw_view.loadUrl("javascript:load_fcm('" + AppSharedPreference.getFcm() + "')");
             if(errorFlag) {
                 asw_view.setVisibility(View.GONE);
