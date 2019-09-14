@@ -107,7 +107,7 @@ public class MyApplication extends Application {
         String topActivityRun = foregroundTaskInfo.topActivity.toString();
         String name = foregroundTaskPackageName + "/" + topActivityRun;
 
-        if (topActivityRun.equals("ComponentInfo{com.classtune.ndc/com.classtune.ndc.activity.MainActivity}"))
+        if (topActivityRun.equals("ComponentInfo{com.betwin69/com.betwin69.activity.MainActivity}"))
 //            HomeFragment.openDialog();
         {
 
@@ -180,7 +180,7 @@ public class MyApplication extends Application {
                     .setColor(Color.WHITE)
 //                    .setContentTitle(subject)
                     .setContentText(message)
-                    .setOngoing(true)
+                    .setOngoing(false)
                     //.setSound(true)
                     .setAutoCancel(true).setWhen(when)
                     .setContentIntent(pendingNotifyIntent)
