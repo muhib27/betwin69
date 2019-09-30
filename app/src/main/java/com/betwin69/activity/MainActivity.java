@@ -206,38 +206,38 @@ public class MainActivity extends AppCompatActivity {
         progressBar = new ProgressDialog(this);
         progressBar.setMessage("Please wait...");
         progressBar.setCancelable(false);
-
-        BroadcastReceiver mainToken = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-
-                //String title = intent.getStringExtra("subject");
-                String body = intent.getStringExtra("message");
-                String target_view = intent.getStringExtra("target_view");
-
-                if (target_view != null) {
-
-                    try {
-                        openDialog(target_view, body);
-//                            ASWV_URL = target_view;
+//start
+//        BroadcastReceiver mainToken = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
 //
-//                            get_info();
-//                            //Webview settings; defaults are customized for best performance
-//                            webSettings = asw_view.getSettings();
-//                            loadUrlwith();
-//                            ASWV_URL = SmartWebView.ASWV_URL;
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    // send token to your server
-                }
-
-            }
-        };
-        LocalBroadcastManager.getInstance(this).registerReceiver(mainToken,
-                new IntentFilter("target_url_token"));
+//                //String title = intent.getStringExtra("subject");
+//                String body = intent.getStringExtra("message");
+//                String target_view = intent.getStringExtra("target_view");
+//
+//                if (target_view != null) {
+//
+//                    try {
+//                        openDialog(target_view, body);
+////                            ASWV_URL = target_view;
+////
+////                            get_info();
+////                            //Webview settings; defaults are customized for best performance
+////                            webSettings = asw_view.getSettings();
+////                            loadUrlwith();
+////                            ASWV_URL = SmartWebView.ASWV_URL;
+//
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                    // send token to your server
+//                }
+//
+//            }
+//        };
+//        LocalBroadcastManager.getInstance(this).registerReceiver(mainToken,
+//                new IntentFilter("target_url_token"));//end
 
 
 //        if (ASWP_PBAR) {
