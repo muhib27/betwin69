@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.multidex.MultiDex;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.betwin69.activity.MainActivity;
@@ -107,63 +108,63 @@ public class MyApplication extends Application {
         String topActivityRun = foregroundTaskInfo.topActivity.toString();
         String name = foregroundTaskPackageName + "/" + topActivityRun;
 
-//        if (topActivityRun.equals("ComponentInfo{com.betwin69/com.betwin69.activity.MainActivity}"))
-////            HomeFragment.openDialog();
-//        {
-//
-//
-//            final Intent intent = new Intent("target_url_token");
-//            final LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(MyApplication.getInstance());
-//
-//            intent.putExtra("message", message);
-//            intent.putExtra("target_view", target);
-//            broadcastManager.sendBroadcast(intent);
-////            long when = System.currentTimeMillis();
-////            NotificationManager notificationManager = (NotificationManager) mInstance
-////                    .getSystemService(Context.NOTIFICATION_SERVICE);
-////
-////            Intent notificationIntent = new Intent(mInstance, MainActivity.class);
-////            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_NO_HISTORY );
-//            //notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//            //notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            //notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-////            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-////            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-////            notificationIntent.putExtra("subject", subject);
-////            notificationIntent.putExtra("message", message);
-////            notificationIntent.putExtra("target_type", type);
-////            notificationIntent.putExtra("target_id", id);
-////            notificationIntent.putExtra("target_view", target);
-////            PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 1111, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-////
-////
-////            NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(mInstance)
-////                    .setSmallIcon(R.drawable.ndc_logo)
-////                    .setColor(Color.WHITE)
-////                    .setContentTitle(subject)
-////                    .setContentText(message)
-////                    .setOngoing(true)
-////                    //.setSound(sound)
-////                    .setAutoCancel(true).setWhen(when)
-////                    .setContentIntent(pendingNotifyIntent)
-////                    .setVibrate(new long[]{6000, 6000});
-////
-////            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-////                int importance = NotificationManager.IMPORTANCE_HIGH;
-////                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NDC", importance);
-////                notificationChannel.enableLights(true);
-////                notificationChannel.setLightColor(Color.WHITE);
-////                notificationChannel.enableVibration(true);
-//////            notificationChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
-////                assert notificationManager != null;
-////                mNotifyBuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
-////                notificationManager.createNotificationChannel(notificationChannel);
-////            }
-////
-////            notificationManager.notify(0, mNotifyBuilder.build());
-//
-//
-//        } else {
+        if (topActivityRun.equals("ComponentInfo{com.betwin69/com.betwin69.activity.MainActivity}"))
+//            HomeFragment.openDialog();
+        {
+
+
+            final Intent intent = new Intent("target_url_token");
+            final LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(MyApplication.getInstance());
+
+            intent.putExtra("message", message);
+            intent.putExtra("target_view", target);
+            broadcastManager.sendBroadcast(intent);
+            long when = System.currentTimeMillis();
+            NotificationManager notificationManager = (NotificationManager) mInstance
+                    .getSystemService(Context.NOTIFICATION_SERVICE);
+
+            Intent notificationIntent = new Intent(mInstance, MainActivity.class);
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_NO_HISTORY );
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            notificationIntent.putExtra("subject", subject);
+            notificationIntent.putExtra("message", message);
+//            notificationIntent.putExtra("target_type", type);
+//            notificationIntent.putExtra("target_id", id);
+            notificationIntent.putExtra("target_view", target);
+            PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 1111, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+            NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(mInstance)
+                    .setSmallIcon(R.drawable.notification_icon)
+                    .setColor(ContextCompat.getColor(context, R.color.noti_bg))
+                    //.setContentTitle(subject)
+                    .setContentText(message)
+                    .setOngoing(true)
+                    //.setSound(sound)
+                    .setAutoCancel(true).setWhen(when)
+                    .setContentIntent(pendingNotifyIntent)
+                    .setVibrate(new long[]{6000, 6000});
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NDC", importance);
+                notificationChannel.enableLights(true);
+                notificationChannel.setLightColor(Color.WHITE);
+                notificationChannel.enableVibration(true);
+//            notificationChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                assert notificationManager != null;
+                mNotifyBuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+
+            notificationManager.notify(0, mNotifyBuilder.build());
+
+
+        } else {
 
             long when = System.currentTimeMillis();
             NotificationManager notificationManager = (NotificationManager) mInstance
@@ -177,7 +178,7 @@ public class MyApplication extends Application {
 
             NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(mInstance)
                     .setSmallIcon(R.drawable.notification_icon)
-                    .setColor(Color.WHITE)
+                    .setColor(ContextCompat.getColor(context, R.color.noti_bg))
 //                    .setContentTitle(subject)
                     .setContentText(message)
                     .setOngoing(false)
@@ -203,5 +204,5 @@ public class MyApplication extends Application {
 
     }
 
-//}
+}
 

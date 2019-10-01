@@ -26,7 +26,8 @@ class SmartWebView {
 
 	//Configuration variables++++++
 	//static String ASWV_URL          = "http://192.168.0.65/";
-	static String ASWV_URL          = "https://betwin69.com/";
+	//static String ASWV_URL          = "https://betwin69.com/";
+	static String ASWV_URL          = "https://sports69.net/";
 	//static String ASWV_URL          = "http://192.168.3.43/";
 	//static String ASWV_URL          = "http://192.168.2.38/";
 	//static String ASWV_URL          = "http://teamworkbd.com"; //complete URL of your website or webpage
