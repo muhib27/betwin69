@@ -550,6 +550,7 @@ public class MainActivity extends AppCompatActivity {
             //{
             // asw_view.addJavascriptInterface(new JavaScriptInterface(getApplicationContext()), addMyFCM());
             //}
+            String s =AppSharedPreference.getFcm();
             asw_view.loadUrl("javascript:load_fcm('" + AppSharedPreference.getFcm() + "')");
             if(errorFlag) {
                 asw_view.setVisibility(View.GONE);
@@ -962,8 +963,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
+        finish();
     }
 
     @Override
@@ -1071,5 +1078,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         deleteDialogCon.show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
     }
 }

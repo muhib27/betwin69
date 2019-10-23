@@ -25,13 +25,11 @@ class SmartWebView {
 	static boolean ASWP_EXTURL      = true;     //open external url with default browser instead of app webview
 
 	//Configuration variables++++++
-	//static String ASWV_URL          = "http://192.168.0.65/";
+
 	//static String ASWV_URL          = "https://betwin69.com/";
-	static String ASWV_URL          = "https://sports69.net/";
-	//static String ASWV_URL          = "http://192.168.3.43/";
-	//static String ASWV_URL          = "http://192.168.2.38/";
-	//static String ASWV_URL          = "http://teamworkbd.com"; //complete URL of your website or webpage
-	//static String ASWV_URL          = "http://192.168.1.231:8012"; //complete URL of your website or webpage
+	static String ASWV_URL          = "https://app.betwin69.com/";
+
+
 	static String ASWV_F_TYPE       = "*/*";  //to upload any file type using "*/*"; check file type references for more
 
 	//Rating system variables

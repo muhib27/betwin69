@@ -135,7 +135,9 @@ public class MyApplication extends Application {
 //            notificationIntent.putExtra("target_type", type);
 //            notificationIntent.putExtra("target_id", id);
             notificationIntent.putExtra("target_view", target);
-            PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 1111, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+            PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
             NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(mInstance)
@@ -151,7 +153,7 @@ public class MyApplication extends Application {
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 int importance = NotificationManager.IMPORTANCE_HIGH;
-                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NDC", importance);
+                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "betwin69", importance);
                 notificationChannel.enableLights(true);
                 notificationChannel.setLightColor(Color.WHITE);
                 notificationChannel.enableVibration(true);
@@ -173,7 +175,8 @@ public class MyApplication extends Application {
             Intent notificationIntent = new Intent(mInstance, MainActivity.class);
             notificationIntent.putExtra("message", message);
             notificationIntent.putExtra("target_view", target);
-            PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 1111, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            PendingIntent pendingNotifyIntent = PendingIntent.getActivity(mInstance, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
             NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(mInstance)
